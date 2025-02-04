@@ -1,0 +1,25 @@
+services:
+  client:
+    container_name: pp-client
+    build:
+      context: ./packages/client
+      dockerfile: prod.Dockerfile
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    networks:
+      - pp-network
+
+  ingress:
+    container_name: pp-ingress
+    build:
+      context: ./packages/ingress
+      dockerfile: prod.Dockerfile
+    restart: unless-stopped
+    ports:
+      - 8080:80
+    networks:
+      - pp-network
+
+networks:
+  pp-network:
