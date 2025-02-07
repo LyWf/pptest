@@ -5,6 +5,7 @@ services:
     build:
       context: ./packages/client
       dockerfile: prod.Dockerfile
+      no_cache: true
     restart: unless-stopped
     ports:
       - 3000:3000
