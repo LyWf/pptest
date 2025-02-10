@@ -3,8 +3,8 @@ services:
   client:
     container_name: pp-client
     build:
-      context: ./packages/client
-      dockerfile: prod.Dockerfile
+      context: .
+      dockerfile: packages/client/prod.Dockerfile
     pull_policy: build
     restart: unless-stopped
     ports:
@@ -21,6 +21,7 @@ services:
     restart: unless-stopped
     ports:
       - 80:80
+      - 443:443
     networks:
       - pp-network
 
