@@ -5,6 +5,7 @@ services:
     build:
       context: ./packages/client
       dockerfile: prod.Dockerfile
+    pull_policy: build
     restart: unless-stopped
     ports:
       - 3000:3000
@@ -16,6 +17,7 @@ services:
     build:
       context: ./packages/ingress
       dockerfile: prod.Dockerfile
+    pull_policy: build
     restart: unless-stopped
     ports:
       - 80:80
