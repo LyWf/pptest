@@ -1,0 +1,17 @@
+
+services:
+  client:
+    extends:
+      file: compose.prod.yaml
+      service: client
+
+  ingress:
+    extends:
+      file: compose.prod.yaml
+      service: ingress
+    ports:
+      - 3080:80
+      - 3443:443
+
+networks:
+  pp-network:
